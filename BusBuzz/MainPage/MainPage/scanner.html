@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Scanner</title><script src="https://unpkg.com/html5-qrcode"></script>
+
+
+    <style>
+        /* Import Google Font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        /* Body Styling */
+        body { 
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1f1c2c, #928dab);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .scanner-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2);
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        #reader {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        #backBtn { 
+            margin-top: 20px;
+            padding: 12px 24px;
+            background: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 77, 77, 0.5);
+        }
+
+        #backBtn:hover {
+            background: #ff1a1a;
+            box-shadow: 0 6px 20px rgba(255, 77, 77, 0.7);
+        }
+
+        /* Scanner animation inside the scanner area */
+        .scanner-animation {
+            position: absolute;
+            width: 90%;
+            height: 4px;
+            background: rgba(0, 255, 0, 0.7);
+            animation: scanMove 2s infinite alternate;
+            left: 5%;
+            top: 20px;
+        }
+
+        @keyframes scanMove {
+            from { top: 10px; }
+            to { top: 90%; }
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Scan QR Code</h2>
+    <div class="scanner-container">
+        <div id="reader"></div>
+        <div class="scanner-animation"></div>
+    </div>
+    <button id="backBtn" onclick="goBack()">Go Back</button>
+
+    <script>
+        function goBack() {
+            window.location.href = "index.html"; // Go back to main page
+        }
+
+        const html5QrCode = new Html5Qrcode("reader");
+
+        function scanQR() {
+            const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+            const qrCodeSuccessCallback = (decodedText) => {
+                console.log(`QR Code Scanned: ${decodedText}`);
+                window.location.href = decodedText; // Navigate to the scanned URL
+            };
+
+            Html5Qrcode.getCameras().then(devices => {
+                if (devices.length) {
+                    let rearCamera = devices.find(device => device.label.toLowerCase().includes("back")) || devices[0];
+                    return html5QrCode.start(rearCamera.id, config, qrCodeSuccessCallback);
+                } else {
+                    return html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+                }
+            }).catch(err => {
+                console.error("Camera error:", err);
+            });
+        }
+
+        // Start scanning once the page loads
+        document.addEventListener("DOMContentLoaded", scanQR);
+    </script>
+
+</body>
+</html>

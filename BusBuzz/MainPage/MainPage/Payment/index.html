@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./design.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="Payment container">
+        <h2 class="PaymentTitle">Payment Method</h2>
+        <div class="radio-group">
+            <label class="radio-label">
+                <input type="radio" name="option" value="paytm">
+                <span class="custom-radio"></span>
+                <img src="./gpay.png" alt="">
+            </label>
+    
+            <label class="radio-label">
+                <input type="radio" name="option" value="paytm">
+                <span class="custom-radio"></span>
+                <img src="./paytm.png" alt="">
+            </label>
+    
+            <label class="radio-label">
+                <input type="radio" name="option" value="card">
+                <span class="custom-radio"></span>
+                <div class="Buswallet">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <h1 class="wallet">Card</h1>
+                </div>
+            </label>
+        </div>
+    </div>
+    
+    <div class="pay container">
+        <button id="payButton">Pay</button>
+    </div>
+    
+    <script src="./script.js">
+    </script>
+    
+</body>
+</html>

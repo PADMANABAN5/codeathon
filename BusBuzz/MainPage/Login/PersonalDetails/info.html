@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./info.css">
+</head>
+<body>
+    <div class="container">
+        <div class="currentTicket">
+            <h1>
+                Personal Details
+            </h1>
+        </div>
+        <form action="http://localhost:8080/Info" method="post" onsubmit="mainPage()">
+            <input type="text" name="name" placeholder="Name" required><br>
+            <input type="text" name="phone" placeholder="Phone" required><br>
+            <input type="text" name="location" placeholder="Location" required><br>
+            <input type="text" name="occupation" placeholder="Occupation" required><br>
+            <input type="text" name="currentLoca" placeholder="Current Area Name" required><br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <script>
+        function mainPage(){
+            event.preventDefault();
+
+            fetch("http://localhost:8080/Info", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: new URLSearchParams(new FormData(document.querySelector("form")))
+            })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("Response Data:", data);
+                if (data === 1) {
+                    window.location.href = "/Main/MainPage/Login/index.html";
+                } else {
+                    alert("Something wrong in your input");
+                }
+            })
+            .catch((error) => {
+                console.error("Error:", error);
+                alert("Server error or connection failed.");
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+/* Body Background */
+body {
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, #7494ec,#74ebd5);
+    /* background-color: #7494ec; */
+}
+
+/* Container Styling */
+.container {
+    background: white;
+    padding: 25px;
+    margin: 10px;
+    border-radius: 12px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    /* margin-right: 40px; */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Heading */
+h2 {
+    font-size: 5.5rem;
+    color: #3434f4;
+    margin-bottom: 30px;
+}
+
+/* Radio Button Group */
+.radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Radio Button Label */
+.radio-label {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    cursor: pointer;
+    height: 30px;
+    transition: 0.3s;
+    border: 2px solid transparent;
+}
+
+.radio-label:hover {
+    background: #e3f2fd;
+}
+
+/* Hide Default Radio Button */
+.radio-label input {
+    display: none;
+}
+
+/* Custom Radio Button */
+.custom-radio {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #666;
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+/* Selected Radio Button Effect */
+.radio-label input:checked + .custom-radio {
+    border-color: #007BFF;
+    background: #007BFF;
+    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.5);
+}
+
+.radio-label input:checked + .custom-radio::after {
+    content: "";
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media screen and (max-width: 650px) {
+    .container {
+        margin: 10px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .radio-label {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    .custom-radio {
+        width: 18px;
+        height: 18px;
+        margin-right: 8px;
+    }
+
+    .radio-label input:checked + .custom-radio::after {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+.Price{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    margin-top: 40px;
+}
+.tickettoggle{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    align-items: center;
+}
+.downarow i{
+    text-align: center;
+    cursor: pointer;
+}
+.ticket {
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: rgb(233, 233, 233);
+    max-height: 300px;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out, padding 0.5s ease-out;
+}
+
+.ticket.close {
+    max-height: 0; /* Collapse the ticket */
+    opacity: 0; /* Fade out */
+    padding: 0; /* Remove extra padding */
+}
+.BusTitle{
+    text-align: center;
+    font-size: 1.4rem;
+}
+.busDetails{
+    display: flex;
+    justify-content: space-between;
+}
+.destination{
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    margin-top: 25px;
+}
+.Totalprice{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+    font-size: 1.3rem;
+}
+.Total{
+    text-align: center;
+    margin-top: 25px;
+    font-size: 1.4rem;
+}
+.pay{
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-size: 1.4rem;
+}
+.PaymentTitle{
+    color: #7494ec;
+    text-align: center;
+    font-size: 1.5rem;
+}
+.radio-label img{
+    width: 60px;
+    height: 60px;
+    margin-left: 10px;
+}
+.Buswallet{
+    width: 40px;
+    height: 40px;
+}
+.Buswallet i{
+    font-size: 1.8rem;
+    margin-left: 10px;
+}
+.Buswallet{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+.wallet{
+    font-size: 1.4rem;
+    font-weight: 800;
+}

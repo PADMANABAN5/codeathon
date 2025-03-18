@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <link rel="stylesheet" href="./design.css">
+</head>
+<body>
+    <h1>User <br> Details</h1> 
+    <div class="container">
+        <img src="./2022_ani_cartoon_27.jpg" alt="User" class="profile-pic">
+        <div class="user-info">
+            <h2 class="name">Abinaya S</h2>
+            <p class="context">Phone: +91 <span class="phone">9132842132</span></p>
+            <p class="context">Location: <span class="Location">India, Tamil Nadu</span></p>
+            <p class="context">Occupation: <span class="Occupation"> Google CEO</span></p>
+            <p class="context">Current Location: <span class="CL">ECR</span></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let userInfo = JSON.parse(localStorage.getItem("userInfo"));
+            document.querySelector('.name').innerHTML = userInfo.name;
+            document.querySelector('.phone').innerHTML = userInfo.phone;
+            document.querySelector('.Location').innerHTML = userInfo.location;
+            document.querySelector('.Occupation').innerHTML = userInfo.occupation;
+            document.querySelector('.CL').innerHTML = userInfo.currentLoca;
+        });
+    </script>
+</body>
+</html>

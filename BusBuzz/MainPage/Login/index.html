@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Login form</title>
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" href="design.css">
+</head>
+<body>
+	<div class="container">
+		<div class="form-box login">
+			<form action="http://localhost:8080/Login" method="post" class="LoginFrom">
+				<h1 class="loginHeader">Login</h1>
+				
+				<div class="recheck"></div>
+				<div class="input-box">
+					<input type="text" placeholder="Email" required name="email">
+					<i class='bx bxs-user'></i>
+				</div>
+				<div class="input-box">
+					<input type="password" placeholder="Password" required name="password">
+					<i class='bx bxs-lock-alt' ></i>
+				</div>
+				<div class="forgot-link">
+					<a href="#">Forgot Password?</a>
+				</div>
+				<button type="submit" class="btn">Login</button>
+				<p>or login with social platforms</p>
+				<div class="social-icons">
+					<a href=""><i class='bx bxl-google' ></i></a>
+					<a href=""><i class='bx bxl-facebook' ></i></a>
+				 </div>
+			</form>
+		</div>
+		<div class="form-box Register">
+			<form action="http://localhost:8080/login/Register" method="post" class="Registerfrom">
+				<h1 class="registerHeader">Registration</h1>
+				<div class="inputBox">
+					<div class="input-box">
+						<input type="text" placeholder="Username" required name="Rusername">
+						<i class='bx bxs-user'></i>
+					</div>
+					<div class="Nameduplicate duplicate">
+					</div>
+				</div>
+
+				<div class="inputBox">
+					<div class="input-box">
+						<input type="email" placeholder="Email" required name="REamil">
+						<i class='bx bxs-envelope'></i>
+					</div>
+					<div class="Emailduplicate duplicate">
+					</div>
+				</div>
+
+				<div class="input-box">
+					<input type="password" placeholder="Password" required name="RPassword">
+					<i class='bx bxs-lock-alt'></i>
+				</div>
+
+				<a href="./PersonalDetails/info.html"><button type="submit" class="btn">Register</button></a>
+				<p>or register with social platforms</p>
+				<div class="social-icons">
+					<a href=""><i class='bx bxl-google' ></i></a>
+					<a href=""><i class='bx bxl-facebook' ></i></a>
+                 </div>
+			</form>
+		</div>
+		<div class="toggle-box">
+            <div class="toggle-panel toggle-left">
+            	<h1>Hello,Welcome!</h1>
+            	<p>Don't have an account?</p>
+            	<button class="btn register-btn">Register</button>
+            </div>
+            <div class="toggle-panel toggle-right">
+            	<h1>Welcome Back!</h1>
+            	<p>Already have an account?</p>
+            	<button class="btn login-btn">Login</button>
+            </div>
+        </div>
+			
+		<img src="/MainPage/" alt="">
+	</div>
+  <script>
+
+	
+    const container = document.querySelector('.container');
+    const registerBtn = document.querySelector('.register-btn');
+	const loginBtn = document.querySelector('.login-btn');
+
+
+    registerBtn.addEventListener('click',() =>{
+        container.classList.add('active');
+    });
+
+    loginBtn.addEventListener('click',() =>{
+        container.classList.remove('active');
+    });
+
+
+	document.querySelector(".Registerfrom").addEventListener("submit", function(event) {
+		event.preventDefault();
+
+		let formData = new FormData(this);
+
+
+		fetch("http://localhost:8080/login/Register", {
+			method: "POST",
+			body: formData
+		})
+		.then(response => response.json())
+		.then(data => {
+			if (data==0) {
+				document.querySelector('.Nameduplicate').innerHTML += "Username already exists. Please use a different one.";
+			} else if(data==1){
+				document.querySelector('.Emailduplicate').innerHTML += "Email already exists. Please use a different one.";
+			}
+			else{
+				window.location.href = "./PersonalDetails/info.html";
+			}
+		})
+		.catch(error => console.error("Error:", error));
+		});
+
+
+
+	document.querySelector(".LoginFrom").addEventListener("submit", function(event)	{
+
+		event.preventDefault();
+		let formData = new FormData(this);
+		
+		fetch("http://localhost:8080/Login", {
+			method: "POST",
+			body: formData
+		})
+		.then(response => {
+			if (!response.ok) {
+				throw new Error("Network response was not ok");
+			}
+			return response.text(); 
+		})
+		.then(text => {
+			let data = text ? JSON.parse(text) : null; 
+			if (data != null) {
+				localStorage.setItem("userInfo", JSON.stringify(data));
+				window.location.href = "/Main/MainPage/MainPage/index.html";
+			} else {
+				document.querySelector('.recheck').innerHTML += "* Recheck your email and password ";
+			} 
+		})
+		.catch(error => console.error("Error:", error));
+	}
+
+)
+
+  </script>
+
+</body>
+</html>

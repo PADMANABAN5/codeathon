@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paytm Dummy Integration</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    background: linear-gradient(135deg, #7494ec,#74ebd5);
+    /* background-color: #7494ec; */
+
+}
+
+.payment-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#paytm-button {
+    background-color: #0080ff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#paytm-button:hover {
+    background-color: #005bb5;
+}
+
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <h2>Pay with Paytm</h2>
+        <button id="paytm-button">Pay Now</button>
+    </div>
+
+    <script src="https://securegw-stage.paytm.in/merchantpgpui/checkoutjs/merchants/YourDummyMerchantID.js"></script>
+    <script>
+        document.getElementById('paytm-button').addEventListener('click', function() {
+            alert('Redirecting to Paytm...');
+            window.location.href = 'https://paytm.com'; 
+        });
+        </script>
+</body>
+</html>

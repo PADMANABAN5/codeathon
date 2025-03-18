@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuSS BuZZ</title>
+    <style>
+        h1{
+            text-align: center;
+            padding: 40px 0px;
+            color: white;
+            background-color: rgba(0, 0, 0,0.1);
+            border-radius: 15px;
+            background: linear-gradient(135deg, #bac8ee,#8de1d3);
+            margin: 0px  5px;
+            margin-top: 30px;
+            border: 1px solid rgb(224, 179, 179);
+        }
+        body {
+            font-family: Arial, sans-serif;
+            align-items: center;
+            background: linear-gradient(135deg, #7494ec, #74ebd5);
+            height: 100vh;
+            
+        }
+        h2{
+            text-align: center;
+            color: white;
+            font-size: 2.1rem;
+        }
+        .container {
+            position: absolute;
+            background: white;
+            background: linear-gradient(135deg, #bac8ee,#8de1d3);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            height: 550px;
+            top: 200px;
+        }
+        input, textarea {
+            width: 93%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #968080;
+            border-radius: 5px;
+            outline: none;
+            font-size: 1.2rem;
+            padding-left: 15px;
+        }
+        input{
+            height: 40px;
+
+        }
+        textarea{
+            height: 80px;
+        }
+        button {
+            width: 99%;
+            padding: 10px;
+            background: #007bff ;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            height: 70px;
+            cursor: pointer;
+            margin-top: 30px;
+            font-size: 1.3rem;
+        }
+        button:hover {
+            background:#0056b3 ;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="header">Customer <br> Support</h1>
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form action="https://api.web3forms.com/submit" method="POST">
+
+            <!-- Replace with your Access Key -->
+            <input type="hidden" name="access_key" value="a3ee1d71-224d-4591-bb3f-f7df14258439">
+            <input type="text" name="name" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" placeholder="Type Message here..." rows="4" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</body>
+</html>

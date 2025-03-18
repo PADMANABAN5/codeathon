@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./design.css">
+</head>
+<body>
+    <div class="container">
+        <div class="currentTicket">
+            <h1>
+                Card Payment
+            </h1>
+        </div>
+
+        <div class="Deposit">
+            <div class="Depost-T">
+                Enter Your Despoit Amount
+            </div>
+            <form action="" method="post" class="cardPayment">
+                <div class="input">
+                    <input type="number" name="payment">
+                </div>
+                <div class="pay container">
+                    <button>Pay</button>
+                </div>
+            </form>
+        </div>
+        <img src="/MainPage/MainPage/index.html" alt="">
+
+    </div>
+
+    <script>
+        let userInfo = JSON.parse(localStorage.getItem("userInfo"));
+        let userId = userInfo.id;
+        let userWallet = userInfo.wallet;
+
+        document.querySelector('.cardPayment').addEventListener('submit', function(event) {
+           event.preventDefault();
+
+           let formData = new FormData(this);
+           formData.append("id", userId);
+
+           let cashAmount = document.querySelector('input[name="payment"]').value;
+           let total = Number(userWallet) + Number(cashAmount);
+           userInfo.wallet = total;
+
+           localStorage.setItem("userInfo",JSON.stringify(userInfo));
+           formData.append("cash", total);
+
+           console.log(formData);
+           fetch("http://localhost:8080/CardPayment", {
+               method: "POST",
+               body: formData
+           })
+
+           .then(response => response.json())
+           .then(data => {
+               window.location.href = "/Main/MainPage/MainPage/index.html";
+           })
+           .catch(error => console.error("Error:", error));
+        });
+
+    </script>
+</body>
+</html>

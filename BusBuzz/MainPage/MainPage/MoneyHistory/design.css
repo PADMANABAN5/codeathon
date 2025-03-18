@@ -1,0 +1,60 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #7494ec, #74ebd5);
+    height: 100vh;
+}
+
+.Transaction{
+    margin-top: 20px;
+}
+
+.Title{
+    text-align: center;
+    /* background-color: rgba(50, 48, 48, 0.5); */
+    border: 1px solid rgb(104, 102, 102);
+    background: linear-gradient(135deg, #819ce6,#66e4cd);
+    padding: 10px;
+    letter-spacing: 1px;
+    font-weight: bolder;
+    color: white;
+    border-radius: 15px;
+}
+
+.container {
+    background: white;
+    padding: 25px;
+    margin: 10px;
+    height: 60px;
+    border-radius: 12px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s ease-in-out;
+}
+.History{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.location{
+    display: flex;
+    font-size: 1.3rem;
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    gap: 10px;
+}
+.lose{
+    color: red;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.Deposit{
+    display: flex;
+    justify-content: space-between;
+}
+.context{
+    font-size: 1.4rem;
+}
+.add{
+    color: green;
+    font-size: 1.5rem;
+    font-weight: 600;
+}

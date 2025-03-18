@@ -1,0 +1,93 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #7494ec, #74ebd5);
+    height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 25px;
+    margin: 10px;
+    border-radius: 12px;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.header {
+    text-align: center;
+    font-size: 2rem;
+    margin: 30px 8px;
+    background: linear-gradient(135deg, #819ce6,#66e4cd);
+    /* background: linear-gradient(135deg, #819ce6,#66e4cd); */
+    /* padding: 30px; */
+    padding-top: 50px;
+    height: 100px;
+    color: white;
+    border-radius: 15px;
+    border: 1px solid rgb(140, 137, 137);
+}
+
+.tickettoggle {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    align-items: center;
+    height: 65px;
+}
+
+.downarow i {
+    text-align: center;
+    cursor: pointer;
+}
+
+.ticket {
+    position: relative;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: rgb(233, 233, 233);
+    max-height: 300px;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out, padding 0.5s ease-out;
+}
+
+.ticket.close {
+    max-height: 0px;
+    opacity: 0;
+    padding: 0;
+}
+
+.BusTitle {
+    text-align: center;
+    font-size: 1.4rem;
+}
+
+.busDetails {
+    display: flex;
+    justify-content: space-between;
+}
+
+.destination {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    margin-top: 25px;
+}
+
+.Totalprice {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+    font-size: 1.3rem;
+}
+
+.Total {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 1.4rem;
+}
+
+.ticketTitle{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}

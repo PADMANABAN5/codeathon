@@ -1,0 +1,225 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+    
+}
+
+@media screen and (max-width:650px ) {
+    .container{
+        /* border: 1px solid black; */
+        margin: 10px;
+        border-radius: 10px;
+        padding: 10px;
+        /* background: linear-gradient(135deg, #7494ec,#74ebd5); */
+    }
+    .header{
+        display:flex;
+        gap: 30px;
+        margin-left: 10px;
+        margin-top: 30px;
+    }
+
+    .busClass{
+        font-size: 2rem;
+        /* color: white; */
+        font-weight: bold;
+    }
+
+    .busNumber{
+        font-size: 1.2rem;
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 600;
+        background-color: #7494ec;
+        color: white;
+    }
+
+    .busStops{
+        margin-top: 50px;
+    }
+
+    .Stops{
+        border-radius: 2px;
+        background-color: white;
+        position: relative;
+        margin-bottom: 60px;
+    }
+    .StopDetails{
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 35px;
+        align-items: center;
+        border-radius: 5px;
+        font-size: 1.5rem;
+        /* border: 1px solid black; */
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    }
+
+    .quantity-container {
+        display: flex;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .quantity-btn {
+        background: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+
+    .quantity-btn:active {
+        transform: scale(0.9);
+    }
+
+    .quantity-btn:hover {
+        background: #0056b3;
+    }
+
+    .quantity-input {
+        width: 50px;
+        text-align: center;
+        font-size: 18px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        padding: 5px;
+        -moz-appearance: textfield; /* Remove default spinner for Firefox */
+    }
+
+    /* Remove number input spinner (Chrome, Safari, Edge, Opera) */
+    .quantity-input::-webkit-outer-spin-button,
+    .quantity-input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    .tickedDetails {
+        width: 98%;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        margin: 0 auto;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        border-radius: 0 0 5px 5px;
+        padding: 0;  /* Start with no padding */
+        transition: max-height 0.5s ease-out, opacity 0.5s ease-out, padding 0.5s ease-out;
+    }
+    
+    /* When open */
+    .tickedDetails.open {
+        max-height: 500px;  /* Large enough to fit content */
+        opacity: 1;
+        padding: 10px;  /* Adds smooth opening effect */
+    }
+    
+    /* Hide Book & Close buttons initially */
+    .bookBtn, .closeBtn {
+        /* opacity: 0; */
+        transform: translateY(-10px);
+        margin-top: 9px;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    
+    /* Show Book & Close buttons when open */
+    .tickedDetails.open .bookBtn, .tickedDetails.open .closeBtn {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    /* Open button */
+    .OpenBtn {
+        display: block;
+        transition: opacity 0.3s ease;
+    }
+    
+    /* Hide Open button when tickedDetails is open */
+    .tickedDetails.open + .OpenBtn {
+        display: none;
+    }
+    .tickedQuanitiy{
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 10px;
+        padding-top: 25px;
+    }
+    .tickedStop{
+        padding-top: 15px;
+        padding-left: 1px;
+        font-size: 1.3rem;
+    }
+    @media (max-width: 400px) {
+        .quantity-container {
+            width: 150px;
+            gap: 5px;
+        }
+
+        .quantity-btn {
+            padding: 8px 12px;
+            font-size: 16px;
+        }
+
+        .quantity-input {
+            width: 40px;
+            font-size: 16px;
+        }
+    }
+
+    .totalPrice{
+        display: flex;
+        width: 85%;
+        margin: 15px auto;
+        justify-content: space-between;
+        padding: 0 15px;
+        font-size: 1.4rem;
+    }
+    .Qprice{
+        margin-left: 10px;
+    }
+    .Ttotal{
+        margin-right: 10px;
+    }
+
+    .closeBtn{
+        font-size: 1.3rem;
+        border: 1px solid black;
+        width: 25vw;
+        text-align: center;
+        position: absolute;
+        right: 4px;
+        padding: 10px;
+        color: white;
+        background-color: rgb(242, 91, 91);
+        border-radius: 0 0 5px 5px;
+    }
+    .closeBtn:active{
+        background-color: red;
+    }
+    .bookBtn{
+        /* margin-left: 220px;
+        margin-bottom: 20px; */
+        position: absolute;
+        text-align: center;
+        font-size: 1.3rem;
+        border-radius: 0 0 5px 5px;
+        background-color: rgb(34, 197, 94);
+        border: 1px solid black;
+        color: white;
+        width: 25vw;
+        padding: 10px;
+        left: 0;
+    }
+    .bookBtn:active{
+        background-color: green;
+    }
+    .OpenBtn{
+        background-color: rgb(34, 197, 94);
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        border: none;
+    }
+}
